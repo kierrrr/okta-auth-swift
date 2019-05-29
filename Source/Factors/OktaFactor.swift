@@ -151,6 +151,8 @@ open class OktaFactor {
 
     public func verify(passCode: String?,
                        answerToSecurityQuestion: String?,
+                       rememberDevice: Bool?,
+                       autoPush: Bool?,
                        onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                        onError: @escaping (_ error: OktaError) -> Void,
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
@@ -162,12 +164,16 @@ open class OktaFactor {
         self.verifyFactor(with: verifyLink!,
                           answer: answerToSecurityQuestion,
                           passCode: passCode,
+                          rememberDevice: rememberDevice,
+                          autoPush: autoPush,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: onFactorStatusUpdate)
     }
 
     public func activate(passCode: String?,
+                         rememberDevice: Bool?,
+                         autoPush: Bool?,
                          onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                          onError: @escaping (_ error: OktaError) -> Void,
                          onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
@@ -179,6 +185,8 @@ open class OktaFactor {
         self.verifyFactor(with: activationLink!,
                           answer: nil,
                           passCode: passCode,
+                          rememberDevice: rememberDevice,
+                          autoPush: autoPush,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: onFactorStatusUpdate)
@@ -222,6 +230,8 @@ open class OktaFactor {
         self.verifyFactor(with: links!.verify!,
                           answer: nil,
                           passCode: nil,
+                          rememberDevice: nil,
+                          autoPush: nil,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: nil)
@@ -240,6 +250,8 @@ open class OktaFactor {
     func verifyFactor(with link: LinksResponse.Link,
                       answer: String?,
                       passCode: String?,
+                      rememberDevice: Bool?,
+                      autoPush: Bool?,
                       onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                       onError: @escaping (_ error: OktaError) -> Void,
                       onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
@@ -247,8 +259,8 @@ open class OktaFactor {
                                   stateToken: stateToken,
                                   answer: answer,
                                   passCode: passCode,
-                                  rememberDevice: nil,
-                                  autoPush: nil,
+                                  rememberDevice: rememberDevice,
+                                  autoPush: autoPush,
                                   completion:  { result in
                                     self.handleServerResponse(response: result,
                                                               onStatusChange: onStatusChange,
