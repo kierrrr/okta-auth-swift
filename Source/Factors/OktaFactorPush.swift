@@ -147,12 +147,14 @@ open class OktaFactorPush : OktaFactor {
     }
 
     public func verify(onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
+                       rememberDevice: Bool?,
+                       autoPush: Bool?,
                        onError: @escaping (_ error: OktaError) -> Void,
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: nil,
                      answerToSecurityQuestion: nil,
-                     rememberDevice: nil,
-                     autoPush: nil,
+                     rememberDevice: rememberDevice,
+                     autoPush: autoPush,
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)
