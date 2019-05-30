@@ -172,8 +172,6 @@ open class OktaFactor {
     }
 
     public func activate(passCode: String?,
-                         rememberDevice: Bool?,
-                         autoPush: Bool?,
                          onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                          onError: @escaping (_ error: OktaError) -> Void,
                          onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {

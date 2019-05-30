@@ -47,7 +47,7 @@ open class OktaFactorTotp : OktaFactor {
                          onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                          onError: @escaping (_ error: OktaError) -> Void,
                          onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
-        super.activate(passCode: passCode, rememberDevice: nil, autoPush: nil, onStatusChange: onStatusChange, onError: onError, onFactorStatusUpdate: onFactorStatusUpdate)
+        super.activate(passCode: passCode, onStatusChange: onStatusChange, onError: onError, onFactorStatusUpdate: onFactorStatusUpdate)
     }
 
     public func select(passCode: String,
