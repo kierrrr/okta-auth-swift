@@ -183,8 +183,6 @@ open class OktaFactor {
         self.verifyFactor(with: activationLink!,
                           answer: nil,
                           passCode: passCode,
-                          rememberDevice: rememberDevice,
-                          autoPush: autoPush,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: onFactorStatusUpdate)

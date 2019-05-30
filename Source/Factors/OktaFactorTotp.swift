@@ -51,13 +51,15 @@ open class OktaFactorTotp : OktaFactor {
     }
 
     public func select(passCode: String,
+                       rememberDevice: Bool?,
+                       autoPush: Bool?,
                        onStatusChange: @escaping (OktaAuthStatus) -> Void,
                        onError: @escaping (OktaError) -> Void) {
         self.verifyFactor(with: links!.verify!,
                           answer: nil,
                           passCode: passCode,
-                          rememberDevice: nil,
-                          autoPush: nil,
+                          rememberDevice: rememberDevice,
+                          autoPush: autoPush,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: nil)

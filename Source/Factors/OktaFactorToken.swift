@@ -40,12 +40,14 @@ open class OktaFactorToken : OktaFactor {
     }
 
     public func select(passCode: String,
+                       rememberDevice: Bool?,
+                       autoPush: Bool?,
                        onStatusChange: @escaping (OktaAuthStatus) -> Void,
                        onError: @escaping (OktaError) -> Void) {
         self.verify(passCode: passCode,
                     onStatusChange: onStatusChange,
-                    rememberDevice: nil,
-                    autoPush: nil,
+                    rememberDevice: rememberDevice,
+                    autoPush: autoPush,
                     onError: onError,
                     onFactorStatusUpdate: nil)
     }
@@ -57,7 +59,7 @@ open class OktaFactorToken : OktaFactor {
         super.verify(passCode: passCode,
                      answerToSecurityQuestion: nil,
                      rememberDevice: nil,
-                     autoPush: nil
+                     autoPush: nil,
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)
