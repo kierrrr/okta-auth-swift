@@ -54,6 +54,8 @@ open class OktaFactorToken : OktaFactor {
     
     public func verify(passCode: String,
                        onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
+                       rememberDevice: Bool?,
+                       autoPush: Bool?,
                        onError: @escaping (_ error: OktaError) -> Void,
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: passCode,
