@@ -55,7 +55,7 @@ open class OktaAuthStatusRecoveryChallenge : OktaAuthStatus {
 
     open func verifyFactor(passCode: String,
                            rememberDevice: Bool?,
-                           autoPush: Bool?
+                           autoPush: Bool?,
                            onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                            onError: @escaping (_ error: OktaError) -> Void) {
         guard let stateToken = model.stateToken else {

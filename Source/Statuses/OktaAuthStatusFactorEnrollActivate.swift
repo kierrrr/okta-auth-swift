@@ -67,6 +67,8 @@ open class OktaAuthStatusFactorEnrollActivate : OktaAuthStatus {
                              onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         self.factor.activate(passCode: passCode,
                              onStatusChange: onStatusChange,
+                             rememberDevice: nil,
+                             autoPush: nil,
                              onError: onError,
                              onFactorStatusUpdate: onFactorStatusUpdate)
     }

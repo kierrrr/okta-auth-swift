@@ -44,6 +44,8 @@ open class OktaFactorToken : OktaFactor {
                        onError: @escaping (OktaError) -> Void) {
         self.verify(passCode: passCode,
                     onStatusChange: onStatusChange,
+                    rememberDevice: nil,
+                    autoPush: nil,
                     onError: onError,
                     onFactorStatusUpdate: nil)
     }
@@ -54,6 +56,8 @@ open class OktaFactorToken : OktaFactor {
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: passCode,
                      answerToSecurityQuestion: nil,
+                     rememberDevice: nil,
+                     autoPush: nil
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)

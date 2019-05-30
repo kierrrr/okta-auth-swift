@@ -68,6 +68,8 @@ open class OktaAuthStatusFactorChallenge : OktaAuthStatus {
                            onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         self.factor.verify(passCode: passCode,
                            answerToSecurityQuestion: answerToSecurityQuestion,
+                           rememberDevice: nil,
+                           autoPush: nil,
                            onStatusChange: onStatusChange,
                            onError: onError,
                            onFactorStatusUpdate: onFactorStatusUpdate)

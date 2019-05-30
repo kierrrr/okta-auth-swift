@@ -67,8 +67,8 @@ open class OktaFactorQuestion : OktaFactor {
         self.verifyFactor(with: links!.verify!,
                           answer: answerToSecurityQuestion,
                           passCode: nil,
-                          rememberDevice: nil
-                          autoPush: nil
+                          rememberDevice: nil,
+                          autoPush: nil,
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: onFactorStatusUpdate)
@@ -80,6 +80,8 @@ open class OktaFactorQuestion : OktaFactor {
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: nil,
                      answerToSecurityQuestion: answerToSecurityQuestion,
+                     rememberDevice: nil,
+                     autoPush: nil,
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)

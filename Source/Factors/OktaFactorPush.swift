@@ -143,7 +143,7 @@ open class OktaFactorPush : OktaFactor {
     public func activate(onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                          onError: @escaping (_ error: OktaError) -> Void,
                          onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
-        super.activate(passCode: nil, onStatusChange: onStatusChange, onError: onError, onFactorStatusUpdate: onFactorStatusUpdate)
+        super.activate(passCode: nil, rememberDevice: nil, autoPush: nil, onStatusChange: onStatusChange, onError: onError, onFactorStatusUpdate: onFactorStatusUpdate)
     }
 
     public func verify(onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
@@ -151,6 +151,8 @@ open class OktaFactorPush : OktaFactor {
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: nil,
                      answerToSecurityQuestion: nil,
+                     rememberDevice: nil,
+                     autoPush: nil,
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)

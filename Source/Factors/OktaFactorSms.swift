@@ -38,6 +38,8 @@ open class OktaFactorSms : OktaFactor {
                        onFactorStatusUpdate: ((_ state: OktaAPISuccessResponse.FactorResult) -> Void)? = nil) {
         super.verify(passCode: passCode,
                      answerToSecurityQuestion: nil,
+                     rememberDevice: nil,
+                     autoPush: nil,
                      onStatusChange: onStatusChange,
                      onError: onError,
                      onFactorStatusUpdate: onFactorStatusUpdate)
