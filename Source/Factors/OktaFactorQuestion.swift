@@ -67,6 +67,8 @@ open class OktaFactorQuestion : OktaFactor {
         self.verifyFactor(with: links!.verify!,
                           answer: answerToSecurityQuestion,
                           passCode: nil,
+                          rememberDevice: nil
+                          autoPush: nil
                           onStatusChange: onStatusChange,
                           onError: onError,
                           onFactorStatusUpdate: onFactorStatusUpdate)

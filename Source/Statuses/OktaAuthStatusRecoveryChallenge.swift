@@ -54,6 +54,8 @@ open class OktaAuthStatusRecoveryChallenge : OktaAuthStatus {
     }
 
     open func verifyFactor(passCode: String,
+                           rememberDevice: Bool?,
+                           autoPush: Bool?
                            onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                            onError: @escaping (_ error: OktaError) -> Void) {
         guard let stateToken = model.stateToken else {
@@ -79,6 +81,8 @@ open class OktaAuthStatusRecoveryChallenge : OktaAuthStatus {
     }
 
     open func verifyFactor(recoveryToken: String,
+                           rememberDevice: Bool?,
+                           autoPush: Bool?,
                            onStatusChange: @escaping (_ newStatus: OktaAuthStatus) -> Void,
                            onError: @escaping (_ error: OktaError) -> Void) {
         guard let stateToken = model.stateToken else {
@@ -95,8 +99,8 @@ open class OktaAuthStatusRecoveryChallenge : OktaAuthStatus {
                              answer: nil,
                              passCode: nil,
                              recoveryToken: recoveryToken,
-                             rememberDevice: nil,
-                             autoPush: nil) { result in
+                             rememberDevice: rememberDevice,
+                             autoPush: autoPush) { result in
                                 self.handleServerResponse(result,
                                                           onStatusChanged: onStatusChange,
                                                           onError: onError)
